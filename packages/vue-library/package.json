@@ -1,0 +1,16 @@
+{
+    "name": "vue-library",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "scripts": {
+      "build": "babel src --out-dir dist"
+    },
+    "dependencies": {
+      "vue": "^3.5.12"
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.25.7",
+      "@babel/preset-env": "^7.25.8"
+    }
+  }
+  
