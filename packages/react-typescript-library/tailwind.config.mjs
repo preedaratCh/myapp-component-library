@@ -7,7 +7,9 @@ export default {
         extend: {
             colors: {
                 primary: {
+                    light: '#E0F2FF',
                     DEFAULT: '#2A7B88',
+                    dark: '#061C24',
                     100: '#E0F2FF', // Lightest
                     200: '#A4D3E2',
                     300: '#79B5C1',
@@ -19,7 +21,9 @@ export default {
                     900: '#061C24', // Darkest
                 },
                 secondary: {
+                    light: '#F7FAFC',
                     DEFAULT: '#8C9BAE',
+                    dark: '#1A202C',
                     100: '#F7FAFC', // Lightest
                     200: '#E1E6EB',
                     300: '#C6D3D9',
@@ -31,7 +35,9 @@ export default {
                     900: '#1A202C', // Darkest
                 },
                 info: {
+                    light: '#E5F8FF',
                     DEFAULT: '#1AB2FF',
+                    dark: '#003F5A',
                     100: '#E5F8FF', // Lightest
                     200: '#B3E8FF',
                     300: '#80D6FF',
@@ -43,7 +49,9 @@ export default {
                     900: '#003F5A', // Darkest
                 },
                 success: {
+                    light: '#F0FFF4',
                     DEFAULT: '#48BB78',
+                    dark: '#22543D',
                     100: '#F0FFF4', // Lightest
                     200: '#C6F6D5',
                     300: '#9AE6B4',
@@ -55,7 +63,9 @@ export default {
                     900: '#22543D', // Darkest
                 },
                 warning: {
+                    light: '#FFFAF0',
                     DEFAULT: '#F6B93B',
+                    dark: '#8B5B00',
                     100: '#FFFAF0', // Lightest
                     200: '#FEF2D1',
                     300: '#FCE48C',
@@ -67,7 +77,9 @@ export default {
                     900: '#8B5B00', // Darkest
                 },
                 danger: {
+                    light: '#FFE5E5',
                     DEFAULT: '#FF1A1A',
+                    dark: '#4D0000',
                     100: '#FFE5E5', // Lightest
                     200: '#FFB3B3',
                     300: '#FF7F7F',
