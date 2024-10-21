@@ -41,6 +41,7 @@ const meta: Meta<typeof Button> = {
         block: { control: 'boolean' },
         rounded: { control: 'boolean' },
         outline: { control: 'boolean' },
+        active: { control: 'boolean' }
     },
     args: {
         label: 'Default',

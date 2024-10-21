@@ -31,5 +31,6 @@ export interface ButtonProps {
     block?: boolean;
     rounded?: boolean;
     outline?: boolean;
+    active?: boolean;
     onClick?: () => void;
 }

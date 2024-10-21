@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-group {
+    @apply w-fit flex;
+}
+.button-group > * {
+    @apply rounded-none;
+}
+.button-group > *:first-child {
+    @apply rounded-l-md;
+}
+.button-group > *:last-child {
+    @apply rounded-r-md;
+}
+.button-group > *:not(:first-child):not(:last-child) {
+    @apply -ml-px;
+}
+.button-group > *:not(:first-child) {
+    @apply border-l-0;
+}
+.button-group > *:not(:last-child) {
+    @apply border-r-0;
+}
+.button-group.button-group-vertical {
+    @apply flex-col;
+}
+.button-group.button-group-vertical > * {
+    @apply rounded-none;
+}
+.button-group.button-group-vertical > *:first-child {
+    @apply rounded-t-md;
+}
+.button-group.button-group-vertical > *:last-child {
+    @apply rounded-b-md;
+}
+.button-group.button-group-vertical > *:not(:first-child):not(:last-child) {
+    @apply w-full mx-auto;
+}
+.button-group.button-group-vertical > *:not(:first-child) {
+    @apply border-t-0 border-l-2;
+}
+.button-group.button-group-vertical > *:not(:last-child) {
+    @apply border-b-0 border-r-2;
+}
+.button-group.button-group-outline > *:not(:last-child) {
+    @apply border-r-2;
+}
+.button-group.button-group-vertical.button-group-outline > *:not(:last-child) {
+    @apply border-b-2;
+}
+.button-group.button-group-rounded > *:first-child {
+    @apply rounded-l-full;
+}
+.button-group.button-group-rounded > *:last-child {
+    @apply rounded-r-full;
+}
+.button-group.button-group-block {
+    @apply  w-full flex justify-between;
+}
+.button-group.button-group-block > * {
+    @apply w-full;
+}
+
+
