@@ -14,7 +14,7 @@ export default {
         info: '#A7D3F5',
         success: '#B8E3B0',
         warning: '#FFD77A',
-        error: '#FF6F61',
+        danger: '#FF6F61',
       },
     },
   },

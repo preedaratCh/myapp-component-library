@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
-import { ButtonColor, ButtonSize, ButtonType } from './Button.types';
+import {
+    ButtonColor,
+    ButtonIconPosition,
+    ButtonSize,
+    ButtonType,
+} from './Button.types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const meta: Meta<typeof Button> = {
     title: 'Components/Button',
@@ -10,6 +17,7 @@ const meta: Meta<typeof Button> = {
     },
     tags: ['autodocs'],
     argTypes: {
+        label: { control: 'text' },
         type: {
             control: 'select',
             description: Object.values(ButtonType).join(' | '),
@@ -24,15 +32,19 @@ const meta: Meta<typeof Button> = {
             options: Object.values(ButtonColor),
             description: Object.values(ButtonColor).join(' | '),
         },
+        icon: {control: 'select'},
+        iconPosition: {
+            control: 'select',
+            description: Object.values(ButtonIconPosition).join(' | '),
+        },
         disabled: { control: 'boolean' },
         block: { control: 'boolean' },
         rounded: { control: 'boolean' },
         outline: { control: 'boolean' },
-        label: { control: 'text' },
     },
     args: {
+        label: 'Default',
         type: ButtonType.Button,
-        label: 'Button',
         size: ButtonSize.Medium,
         color: ButtonColor.Primary,
         disabled: false,
@@ -51,7 +63,14 @@ export const Color: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `
+<Button label="Primary" color={ButtonColor.Primary} />
+<Button label="Secondary" color={ButtonColor.Secondary} />
+<Button label="Info" color={ButtonColor.Info} />
+<Button label="Success" color={ButtonColor.Success} />
+<Button label="Warning" color={ButtonColor.Warning} />
+<Button label="Danger" color={ButtonColor.Danger} />
+                `,
             },
         },
     },
@@ -73,7 +92,7 @@ export const Color: Story = {
                 <Button label="Warning" color={ButtonColor.Warning} />
             </div>
             <div className="mr-3">
-                <Button label="Error" color={ButtonColor.Error} />
+                <Button label="Danger" color={ButtonColor.Danger} />
             </div>
         </div>
     ),
@@ -82,7 +101,14 @@ export const Outline: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `
+<Button label="Primary" color={ButtonColor.Primary} outline />
+<Button label="Secondary" color={ButtonColor.Secondary} outline />
+<Button label="Info" color={ButtonColor.Info} outline />
+<Button label="Success" color={ButtonColor.Success} outline />
+<Button label="Warning" color={ButtonColor.Warning} outline />
+<Button label="Danger" color={ButtonColor.Danger} outline />
+                `,
             },
         },
     },
@@ -108,7 +134,7 @@ export const Outline: Story = {
                 <Button label="Warning" color={ButtonColor.Warning} outline />
             </div>
             <div className="mr-3">
-                <Button label="Error" color={ButtonColor.Error} outline />
+                <Button label="Danger" color={ButtonColor.Danger} outline />
             </div>
         </div>
     ),
@@ -117,7 +143,14 @@ export const Rounded: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `
+<Button label="Primary" color={ButtonColor.Primary} rounded />
+<Button label="Secondary" color={ButtonColor.Secondary} rounded />
+<Button label="Info" color={ButtonColor.Info} rounded />
+<Button label="Success" color={ButtonColor.Success} rounded />
+<Button label="Warning" color={ButtonColor.Warning} rounded />
+<Button label="Danger" color={ButtonColor.Danger} rounded />
+                `,
             },
         },
     },
@@ -143,7 +176,7 @@ export const Rounded: Story = {
                 <Button label="Warning" color={ButtonColor.Warning} rounded />
             </div>
             <div className="mr-3">
-                <Button label="Error" color={ButtonColor.Error} rounded />
+                <Button label="Danger" color={ButtonColor.Danger} rounded />
             </div>
         </div>
     ),
@@ -152,7 +185,14 @@ export const Disabled: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `
+<Button label="Primary" color={ButtonColor.Primary} disabled />
+<Button label="Secondary" color={ButtonColor.Secondary} disabled />
+<Button label="Info" color={ButtonColor.Info} disabled />
+<Button label="Success" color={ButtonColor.Success} disabled />
+<Button label="Warning" color={ButtonColor.Warning} disabled />
+<Button label="Danger" color={ButtonColor.Danger} disabled />
+                `,
             },
         },
     },
@@ -178,7 +218,7 @@ export const Disabled: Story = {
                 <Button label="Warning" color={ButtonColor.Warning} disabled />
             </div>
             <div className="mr-3">
-                <Button label="Error" color={ButtonColor.Error} disabled />
+                <Button label="Danger" color={ButtonColor.Danger} disabled />
             </div>
         </div>
     ),
@@ -187,21 +227,68 @@ export const Block: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `<Button label="Block" color={ButtonColor.Primary} block />`,
             },
         },
     },
     render: () => (
         <>
-            <Button label="Primary" color={ButtonColor.Primary} block />
+            <Button label="Block" color={ButtonColor.Primary} block />
         </>
+    ),
+};
+export const Icon: Story = {
+    parameters: {
+        docs: {
+            source: {
+                code: `
+<Button 
+    label="Icon Left" 
+    color={ButtonColor.Primary} 
+    icon={<FontAwesomeIcon icon={faStar} />} 
+/>
+<Button 
+    label="Icon Right" 
+    color={ButtonColor.Primary} 
+    icon={<FontAwesomeIcon icon={faStar} />} 
+    iconPosition={ButtonIconPosition.Right} 
+/>
+`               
+            },
+        },
+    },
+    render: () => (
+        <div className="flex flex-row justify-center">
+            <div className="mr-3">
+                <Button
+                    label="Icon Left"
+                    color={ButtonColor.Primary}
+                    icon={<FontAwesomeIcon icon={faStar} />}
+                />
+            </div>
+            <div className="mr-3">
+                <Button
+                    label="Icon Right"
+                    color={ButtonColor.Primary}
+                    icon={<FontAwesomeIcon icon={faStar} />}
+                    iconPosition={ButtonIconPosition.Right}
+                />
+            </div>
+        </div>
     ),
 };
 export const Small: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `
+<Button label="Primary" color={ButtonColor.Primary} size={ButtonSize.Small} />
+<Button label="Secondary" color={ButtonColor.Secondary} size={ButtonSize.Small} />
+<Button label="Info" color={ButtonColor.Info} size={ButtonSize.Small} />
+<Button label="Success" color={ButtonColor.Success} size={ButtonSize.Small} />
+<Button label="Warning" color={ButtonColor.Warning} size={ButtonSize.Small} />
+<Button label="Danger" color={ButtonColor.Danger} size={ButtonSize.Small} />     
+                `,
             },
         },
     },
@@ -244,8 +331,8 @@ export const Small: Story = {
             </div>
             <div className="mr-3">
                 <Button
-                    label="Error"
-                    color={ButtonColor.Error}
+                    label="Danger"
+                    color={ButtonColor.Danger}
                     size={ButtonSize.Small}
                 />
             </div>
@@ -256,7 +343,14 @@ export const Large: Story = {
     parameters: {
         docs: {
             source: {
-                code: null,
+                code: `
+<Button label="Primary" color={ButtonColor.Primary} size={ButtonSize.Large} />
+<Button label="Secondary" color={ButtonColor.Secondary} size={ButtonSize.Large} />
+<Button label="Info" color={ButtonColor.Info} size={ButtonSize.Large} />
+<Button label="Success" color={ButtonColor.Success} size={ButtonSize.Large} />
+<Button label="Warning" color={ButtonColor.Warning} size={ButtonSize.Large} />
+<Button label="Danger" color={ButtonColor.Danger} size={ButtonSize.Large} />
+                `,
             },
         },
     },
@@ -299,8 +393,8 @@ export const Large: Story = {
             </div>
             <div className="mr-3">
                 <Button
-                    label="Error"
-                    color={ButtonColor.Error}
+                    label="Danger"
+                    color={ButtonColor.Danger}
                     size={ButtonSize.Large}
                 />
             </div>

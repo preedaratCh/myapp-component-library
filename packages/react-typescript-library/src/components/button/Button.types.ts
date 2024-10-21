@@ -14,16 +14,22 @@ export enum ButtonColor {
     Info = 'info',
     Success = 'success',
     Warning = 'warning',
-    Error = 'error',
+    Danger = 'danger',
+}
+export enum ButtonIconPosition { 
+    Left = 'left',
+    Right = 'right',
 }
 export interface ButtonProps {
+    label: string;
     type?: ButtonType;
+    size?: ButtonSize;
+    color?: ButtonColor;
+    icon?: React.ReactNode;
+    iconPosition?: ButtonIconPosition
     disabled?: boolean;
     block?: boolean;
     rounded?: boolean;
     outline?: boolean;
-    size?: ButtonSize;
-    color?: ButtonColor;
-    label: string;
     onClick?: () => void;
 }

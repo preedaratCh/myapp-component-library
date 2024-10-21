@@ -66,7 +66,7 @@ export default {
                     800: '#B57900',
                     900: '#8B5B00', // Darkest
                 },
-                error: {
+                danger: {
                     DEFAULT: '#FF1A1A',
                     100: '#FFE5E5', // Lightest
                     200: '#FFB3B3',
